@@ -6,11 +6,15 @@
 <li>Species: {{animal.species}}</li>
 <li>Date of Birth: {{animal.dob}}</li>
 <li>Owner phone no.: {{animal.phone}}</li>
-<li>Vet: {{vet.name}}</li>
+<li>Vet: <a href="/vets/{{vet.id}}">{{vet.name}}</a></li>
 <li>Notes: {{animal.notes}}</li>
 </ul>
 <button class="button">
-    <a href="/animals/{{animal.id}}/edit">Update</a>
+    <a class="button" href="/animals/{{animal.id}}/edit">Update</a>
 </button>
+<form action="/animals/{{animal.id}}" method="POST">
+    <label for="delete"></label>
+    <input class="button" type="submit" id="delete" value="Delete"/>
+</form>
 
 {% endblock content %}

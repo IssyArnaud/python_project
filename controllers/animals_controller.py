@@ -18,6 +18,13 @@ def show(id):
     vet = Vet.query.get(animal.vet_id)
     return render_template('animals/details.jinja', animal=animal, vet=vet)
 
+@animals_blueprint.route('/animals/<id>', methods=["POST"])
+def delete(id):
+    animal = Animal.query.get(id)
+    db.session.delete(animal)
+    db.session.commit()
+    return redirect ('/animals')
+
 @animals_blueprint.route('/animals/<id>/edit')
 def edit(id):
     animal = Animal.query.get(id)
@@ -40,10 +47,7 @@ def update(id):
     animal.notes = notes
     animal.vet_id = vet_id
     db.session.commit()
-    return redirect ('/animals') 
-##############################
-# WANT TO RETURN TO ('/animals/<id>') but it won't let me, it's not happy about the input type of <id>
-##############################
+    return redirect (f'/animals/{id}')
 
 @animals_blueprint.route('/animals/new')
 def new():

@@ -1,0 +1,40 @@
+{% extends 'base.jinja' %}
+{% block content %}
+
+<h1>{{vet.name}} cannot be deleted before reassigning caseload.</h1>
+
+<h2>{{vet.name}}'s caseload:</h2>
+
+<ul>
+    {% for animal in cases  %}
+        <li>
+            <h3> {{animal.name}} </h3>
+                <ul>
+                    <li>Species: {{animal.species}}</li>
+                    <li>Date of Birth: {{animal.dob}}</li>
+                    <li>Owner phone no.: {{animal.phone}}</li>
+                    <li>
+                        <form action="/vets/{{vet.id}}/reassign/{{animal.id}}" method="POST">
+                            <label for="vet">Vet</label>
+                                <select name="vet.id">
+                                    {% for vet in vets %}
+                                        <option value="{{vet.id}}" class="text">{{vet.name}}</option>
+                                    {% endfor %}
+                                </select>
+                            <input class="button" type="submit" value="Update"/>
+                        </form>
+                    </li>
+                    <li>Notes: {{animal.notes}}</li>
+                </ul>
+        </li>
+    {% endfor %}
+</ul>
+
+
+{# <ul>
+    {% for animal in cases  %}
+        <li><a href="/animals/{{animal.id}}/edit">{{animal.name}}, {{animal.species}}</li>
+    {% endfor %}
+</ul> #}
+
+{% endblock content %}

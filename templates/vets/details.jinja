@@ -4,8 +4,13 @@
 <h1> {{vet.name}} </h1>
 
 <button class="button">
-    <a href="/vets/{{vet.id}}/edit">Update</a>
+    <a class="button" href="/vets/{{vet.id}}/edit">Update</a>
 </button>
+
+<form action="/vets/{{vet.id}}" method="POST">
+    <label for="delete"></label>
+    <input class="button" type="submit" id="delete" value="Delete"/>
+</form>
 
 <h2>Case load:</h2>
 

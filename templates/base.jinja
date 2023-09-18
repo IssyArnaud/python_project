@@ -3,11 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    {# <link rel="stylesheet" href="{{ url_for('static', filename='main.css') }}"/> #}
+    <link rel="stylesheet" href="{{ url_for('static', filename='main.css') }}"/>
     <title>VetAdmin</title>
 </head>
 <body>
-    {# nav bar here #}
+    <header>
+        <nav class="container">
+            <ul>
+                <li>
+                    <button><a class="button" href="/vets">Vets</a></button>
+                </li>
+                <li>
+                    <button><a class="button" href="/animals">Animals</a></button>
+                </li>
+            </ul>
+        </nav>
+    </header>
     {% block content %}
         
     {% endblock content %}

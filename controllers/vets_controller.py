@@ -18,6 +18,34 @@ def show(id):
     cases = Animal.query.filter_by(vet_id = id)
     return render_template('/vets/details.jinja', vet=vet, cases=cases)
 
+@vets_blueprint.route('/vets/<id>/reassign')
+def prevent_delete(id):
+    vet = Vet.query.get(id)
+    cases = Animal.query.filter_by(vet_id = id)
+    vets = Vet.query.all()
+    return render_template('/vets/reassign.jinja', vet=vet, cases=cases, vets=vets)
+
+@vets_blueprint.route('/vets/<id>/reassign/<animal_id>', methods=["POST"])
+def reassign(id, animal_id):
+    animal = Animal.query.get(animal_id)
+    new_vet_id = request.form["vet.id"]
+    animal.vet_id = new_vet_id
+    db.session.commit()
+    if Animal.query.filter_by(vet_id = id).all() == []:
+        return redirect (f'/vets/{id}')
+    else:
+        return redirect (f'/vets/{id}/reassign')
+
+@vets_blueprint.route('/vets/<id>', methods=["POST"])
+def delete(id):
+    vet = Vet.query.get(id)
+    if Animal.query.filter_by(vet_id = id).all() == []:
+        db.session.delete(vet)
+        db.session.commit()
+        return redirect ('/vets')
+    else:
+        return redirect (f'/vets/{id}/reassign')
+
 @vets_blueprint.route('/vets/<id>/edit')
 def edit(id):
     vet = Vet.query.get(id)
@@ -29,10 +57,7 @@ def update(id):
     name = request.form["name"]
     vet.name = name
     db.session.commit()
-    return redirect ('/vets') 
-##############################
-# WANT TO RETURN TO ('/vets/<id>') but it won't let me, it's not happy about the input type of <id>
-##############################
+    return redirect (f"/vets/{id}") 
 
 @vets_blueprint.route('/vets/new')
 def new():

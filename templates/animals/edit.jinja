@@ -19,6 +19,11 @@
             <select name="vet.id">
             {% for vet in vets %}
                 <option value="{{vet.id}}" class="text">{{vet.name}}</option>
+                    {# {% for option in options %}
+                        {% if option != vet.id %}
+                            <option value="{{option}}">{{option}}</option>
+                        {% endif %}
+                    {% endfor %} #}
             {% endfor %}
             </select>
             <input class="button" type="submit" value="Update"/>
