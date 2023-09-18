@@ -1,0 +1,16 @@
+{% extends 'base.jinja' %}
+{% block content %}
+
+<h1> {{animal.name}} </h1>
+<ul>
+<li>Species: {{animal.species}}</li>
+<li>Date of Birth: {{animal.dob}}</li>
+<li>Owner phone no.: {{animal.phone}}</li>
+<li>Vet: {{vet.name}}</li>
+<li>Notes: {{animal.notes}}</li>
+</ul>
+<button class="button">
+    <a href="/animals/{{animal.id}}/edit">Update</a>
+</button>
+
+{% endblock content %}

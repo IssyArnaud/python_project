@@ -1,0 +1,27 @@
+{% extends 'base.jinja' %}
+{% block content %}
+
+<h1>Update details</h1>
+<h2>{{animal.name}}</h2>
+    <form action="/animals/{{animal.id}}/edit" method="POST">
+            <label for="name">Name</label>
+            <input type="text" name="name" id="name" value="{{animal.name}}"/>
+            <label for="species">Species</label>
+            <input type="text" name="species" id="species" value="{{animal.species}}"/>
+            <label for="dob">Date of Birth</label>
+            <input type="text" name="dob" id="dob" value="{{animal.dob}}"/>
+            <label for="phone">Owner's phone no.</label>
+            <input type="text" name="phone" id="phone" value="{{animal.phone}}"/>
+            <label for="notes">Notes</label>
+            <textarea name="notes" id="notes" rows="4" cols="80" value="{{animal.notes}}"></textarea>
+            {# how do you preset notes to previous notes??? #}
+            <label for="vet">Vet</label>
+            <select name="vet.id">
+            {% for vet in vets %}
+                <option value="{{vet.id}}" class="text">{{vet.name}}</option>
+            {% endfor %}
+            </select>
+            <input class="button" type="submit" value="Update"/>
+        </form>
+
+{% endblock content %}

@@ -1,0 +1,15 @@
+{% extends 'base.jinja' %}
+{% block content %}
+
+<h1>Vets</h1>
+<ul>
+    {% for vet in vets %}
+    <li><a href="/vets/{{vet.id}}">{{vet.name}}</a></li>
+    {% endfor %}
+</ul>
+
+<button>
+    <a class="button" href="/vets/new">Add new vet</a>
+</button>
+
+{% endblock content %}

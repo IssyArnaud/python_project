@@ -1,0 +1,11 @@
+{% extends 'base.jinja' %}
+{% block content %}
+
+<h1>Add vet</h1>
+    <form action="/vets/new" method="POST">
+        <label for="name">Name</label>
+        <input type="text" name="name" id="name"/>
+        <input class="button" type="submit" value="Add"/>
+    </form>
+
+{% endblock content %}

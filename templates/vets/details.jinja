@@ -1,0 +1,18 @@
+{% extends 'base.jinja' %}
+{% block content %}
+
+<h1> {{vet.name}} </h1>
+
+<button class="button">
+    <a href="/vets/{{vet.id}}/edit">Update</a>
+</button>
+
+<h2>Case load:</h2>
+
+<ul>
+    {% for animal in cases  %}
+        <li><a href="/animals/{{animal.id}}">{{animal.name}}, {{animal.species}}</li>
+    {% endfor %}
+</ul>
+
+{% endblock content %}
