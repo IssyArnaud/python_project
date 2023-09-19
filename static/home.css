@@ -1,0 +1,32 @@
+* {
+    background-color: rgb(134, 185, 160);
+}
+
+a {
+    color: rgb(192, 238, 216);
+    text-decoration: none;
+    font-size: large;
+}
+
+h1 {
+    background-color: rgb(42, 41, 44);
+    color: rgb(160, 212, 187);
+    display: flex;
+    padding: 3rem;
+    justify-content: space-evenly;
+    font-size: xxx-large;
+}
+
+header>section {
+        display: flex;
+        justify-content: space-evenly;
+}
+
+button {
+    background-color: rgb(42, 41, 44);
+    padding: 1rem;
+}
+
+.button {
+    background-color: rgb(42, 41, 44);
+}

@@ -17,3 +17,6 @@ app.register_blueprint(vets_blueprint)
 
 from controllers.animals_controller import animals_blueprint
 app.register_blueprint(animals_blueprint)
+
+from controllers.home_controller import home_blueprint
+app.register_blueprint(home_blueprint)

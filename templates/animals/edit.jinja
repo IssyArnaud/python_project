@@ -13,17 +13,12 @@
             <label for="phone">Owner's phone no.</label>
             <input type="text" name="phone" id="phone" value="{{animal.phone}}"/>
             <label for="notes">Notes</label>
-            <textarea name="notes" id="notes" rows="4" cols="80" value="{{animal.notes}}"></textarea>
+            <textarea name="notes" id="notes">{{animal.notes}}</textarea>
             {# how do you preset notes to previous notes??? #}
             <label for="vet">Vet</label>
             <select name="vet.id">
             {% for vet in vets %}
-                <option value="{{vet.id}}" class="text">{{vet.name}}</option>
-                    {# {% for option in options %}
-                        {% if option != vet.id %}
-                            <option value="{{option}}">{{option}}</option>
-                        {% endif %}
-                    {% endfor %} #}
+                <option value="{{vet.id}}" selected class="text">{{vet.name}}</option>
             {% endfor %}
             </select>
             <input class="button" type="submit" value="Update"/>

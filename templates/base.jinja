@@ -8,19 +8,20 @@
 </head>
 <body>
     <header>
-        <nav class="container">
-            <ul>
-                <li>
-                    <button><a class="button" href="/vets">Vets</a></button>
-                </li>
-                <li>
-                    <button><a class="button" href="/animals">Animals</a></button>
-                </li>
-            </ul>
+        <nav>
+            <div>
+                <button><a class="button" href='/home'>VetAdmin</a></button>
+            </div>
+            <section>
+                <button><a class="button" href="/vets">Vets</a></button>
+                <button><a class="button" href="/animals">Animals</a></button>
+            </section>
         </nav>
     </header>
+    <section>
     {% block content %}
         
     {% endblock content %}
+    </section>
 </body>
 </html>

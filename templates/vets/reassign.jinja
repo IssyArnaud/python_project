@@ -18,7 +18,7 @@
                             <label for="vet">Vet</label>
                                 <select name="vet.id">
                                     {% for vet in vets %}
-                                        <option value="{{vet.id}}" class="text">{{vet.name}}</option>
+                                        <option value="{{vet.id}}" selected class="text">{{vet.name}}</option>
                                     {% endfor %}
                                 </select>
                             <input class="button" type="submit" value="Update"/>

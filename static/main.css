@@ -1,18 +1,46 @@
 * {
-    background-color: rgb(138, 156, 156);
+    background-color: rgb(154, 187, 171);
+}
+
+h1 {
+    color:rgb(42, 41, 44)
+}
+
+h2 {
+    color:rgb(42, 41, 44)
 }
 
 a {
     color:black;
+    text-decoration: none;
 }
 
-header>nav>ul {
+header>nav {
     background-color:rgb(42, 41, 44);
     padding: 2rem;
     display: flex;
+    justify-content: space-between;
+}
+
+header>nav>div>button {
+    border-color:rgb(134, 185, 160);
+    border-width: 0.3rem;
+    padding: 1rem;
+    font-size:x-large;
+}
+
+header>nav>section {
+    background-color:rgb(42, 41, 44);
     list-style: none;
+    display: flex;
     justify-content: space-evenly;
     text-decoration: none;
+}
+
+header>nav>section>button {
+    background-color:rgb(42, 41, 44);
+    outline: none;
+    border: none
 }
 
 button>a {
@@ -22,10 +50,14 @@ button>a {
 
 .button {
     background-color: rgb(42, 41, 44);
-    color: rgb(163, 182, 182);
+    color: rgb(192, 238, 216);
 }
 
 button {
     background-color: rgb(42, 41, 44);
-    color: rgb(163, 182, 182);
+    color: rgb(192, 238, 216);
+}
+
+section {
+    margin-left: 50px;
 }
