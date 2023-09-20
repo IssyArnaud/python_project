@@ -5,6 +5,7 @@ from datetime import datetime
 from models.animal import Animal
 from models.vet import Vet
 from models.owner import Owner
+from models.appointment import Appointment
 from app import db
 
 animals_blueprint = Blueprint("animals", __name__)
@@ -24,6 +25,9 @@ def show(id):
 @animals_blueprint.route('/animals/<id>', methods=["POST"])
 def delete(id):
     animal = Animal.query.get(id)
+    appointments = Appointment.query.filter_by(animal_id = id)
+    for appointment in appointments:
+        db.session.delet(appointment)
     db.session.delete(animal)
     db.session.commit()
     return redirect ('/animals')

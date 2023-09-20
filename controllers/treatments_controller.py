@@ -3,6 +3,7 @@ from flask import Blueprint
 
 from app import db
 from models.treatment import Treatment
+from models.appointment import Appointment
 
 treatments_blueprint = Blueprint("treatments", __name__)
 
@@ -19,6 +20,9 @@ def show(id):
 @treatments_blueprint.route('/treatments/<id>', methods=["POST"])
 def delete(id):
     treatment = Treatment.query.get(id)
+    appointments = Appointment.query.filter_by(treatment_id = id)
+    for appointment in appointments:
+        db.session.delete(appointment)
     db.session.delete(treatment)
     db.session.commit()
     return redirect ('/treatments')

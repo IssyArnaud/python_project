@@ -4,6 +4,7 @@ from flask import Blueprint
 from models.vet import Vet
 from models.animal import Animal
 from models.owner import Owner
+from models.appointment import Appointment
 from app import db
 
 owners_blueprint = Blueprint("owners", __name__)
@@ -55,7 +56,12 @@ def delete(id):
     owner = Owner.query.get(id)
     pets = Animal.query.filter_by(owner_id = id)
     for animal in pets:
+        pet_id = animal.id
+        appointments = Appointment.query.filter_by(animal_id = pet_id)
+        for appointment in appointments:
+            db.session.delete(appointment)
+    for animal in pets:
         db.session.delete(animal)
     db.session.delete(owner)
     db.session.commit()
-    return redirect ('/animals')
+    return redirect ('/owners')
