@@ -1,0 +1,28 @@
+{% extends 'base.jinja' %}
+{% block content %}
+
+<h1> {{owner.name}} </h1>
+
+<ul>
+    <li>Phone no.: {{owner.phone}}</li>
+    <li>Email: {{owner.email}}</li>
+</ul>
+
+<button class="button">
+    <a class="button" href="/owners/{{owner.id}}/edit">Update</a>
+</button>
+
+<form action="/owners/{{owner.id}}" method="POST">
+    <label for="delete"></label>
+    <input class="button" type="submit" id="delete" value=" Delete"/>
+</form>
+
+<h2>Animals:</h2>
+
+<ul>
+    {% for animal in pets  %}
+        <li><a href="/animals/{{animal.id}}">{{animal.name}}, {{animal.species}}</li>
+    {% endfor %}
+</ul>
+
+{% endblock content %}

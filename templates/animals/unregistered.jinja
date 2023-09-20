@@ -2,19 +2,15 @@
 {% block content %}
 
 <h1>Add animal</h1>
-    <form id="grid-container" action="/animals/new" method="POST">
+    <form id="grid-container" action="/animals/new/unregistered" method="POST">
         <label for="name">Name:</label>
         <input type="text" name="name" id="name"/>
         <label for="species">Species:</label>
         <input type="text" name="species" id="species"/>
         <label for="dob">Date of Birth:</label>
         <input type="text" name="dob" id="dob"/>
-        <label for="owner">Owner:</label>
-        <select name="owner.id">
-            {% for owner in owners %}
-                <option value="{{owner.id}}" class="text">{{owner.name}}</option>
-            {% endfor %}
-        </select>
+        <label for="phone">Owner's phone no.:</label>
+        <input type="text" name="phone" id="phone"/>
         <label for="notes">Notes:</label>
         <textarea name="notes" id="notes" rows="4" cols="80"></textarea>
         <label for="vet">Vet:</label>

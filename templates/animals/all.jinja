@@ -7,8 +7,15 @@
     <li><a href="/animals/{{animal.id}}">{{animal.name}}</a>, {{animal.species}}</li>
     {% endfor %}
 </ul>
+
+{# <section id="newanimal"> #}
+<p>Add new animal:</p>
 <button>
-    <a class="button" href="/animals/new">Add new animal</a>
+    <a class="button" href="/animals/new">Registered owner</a>
 </button>
+<button>
+    <a class="button" href="/animals/new/unregistered">Unregistered owner</a>
+</button>
+{# </section> #}
 
 {% endblock content %}

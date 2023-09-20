@@ -1,0 +1,17 @@
+{% extends 'base.jinja' %}
+{% block content %}
+
+<h1>Register owner</h1>
+    <form action="/owners/new" method="POST">
+        <label for="name">Name:</label>
+        <input type="text" name="name" id="name"/>
+        <label for="phone">Phone no.:</label>
+        <input type="text" name="phone" id="phone"/>
+        <label for="email">Email:</label>
+        <input type="text" name="email" id="email"/>
+        <input class="button" type="submit" value="Add"/>
+    </form>
+{# <h2>Register animal</h2> #}
+
+
+{% endblock content %}

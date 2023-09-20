@@ -3,24 +3,39 @@
 
 <h1>Update details</h1>
 <h2>{{animal.name}}</h2>
-    <form action="/animals/{{animal.id}}/edit" method="POST">
-            <label for="name">Name</label>
+    <form id="grid-container" action="/animals/{{animal.id}}/edit" method="POST">
+            <label for="name">Name:</label>
             <input type="text" name="name" id="name" value="{{animal.name}}"/>
-            <label for="species">Species</label>
+            <label for="species">Species:</label>
             <input type="text" name="species" id="species" value="{{animal.species}}"/>
-            <label for="dob">Date of Birth</label>
+            <label for="dob">Date of Birth:</label>
             <input type="text" name="dob" id="dob" value="{{animal.dob}}"/>
-            <label for="phone">Owner's phone no.</label>
-            <input type="text" name="phone" id="phone" value="{{animal.phone}}"/>
-            <label for="notes">Notes</label>
-            <textarea name="notes" id="notes">{{animal.notes}}</textarea>
-            {# how do you preset notes to previous notes??? #}
-            <label for="vet">Vet</label>
-            <select name="vet.id">
-            {% for vet in vets %}
-                <option value="{{vet.id}}" selected class="text">{{vet.name}}</option>
-            {% endfor %}
+            <label for="owner">Owner:</label>
+            <select name="owner.id">
+                {% for person in owners %}
+                    <option value="{{owner.id}}" class="text"
+                        {% if person.id == animal.owner_id %}selected{% endif %}>
+                            {{person.name}} 
+                    </option>
+                {% endfor %}
+                    <option value="" {% if animal.owner_id == None %}selected{% endif %}
+                    >-- Unregisterd owner --</option>
             </select>
+            {% if animal.owner_id == None %}
+                <label for="phone">Owner's phone no.:</label>
+                <input type="text" name="phone" id="phone" value="{{animal.phone}}"/>
+            {% endif %}
+            <label for="vet">Vet:</label>
+            <select name="vet.id">
+                {% for person in vets %}
+                    <option value="{{vet.id}}" class="text"
+                        {% if person.id == animal.vet_id %}selected{% endif %}>
+                            {{person.name}}
+                    </option>
+                {% endfor %}
+            </select>
+            <label for="notes">Notes:</label>
+            <textarea name="notes" id="notes">{{animal.notes}}</textarea>
             <input class="button" type="submit" value="Update"/>
         </form>
 

@@ -1,0 +1,16 @@
+{% extends 'base.jinja' %}
+{% block content %}
+
+<h1>Update details</h1>
+<h2>{{owner.name}}</h2>
+    <form action="/owners/{{owner.id}}/edit" method="POST">
+            <label for="name">Name:</label>
+            <input type="text" name="name" id="name" value="{{owner.name}}"/>
+            <label for="phone">Phone no.:</label>
+            <input type="text" name="phone" id="phone" value="{{owner.phone}}"/>
+            <label for="email">Email:</label>
+            <input type="text" name="email" id="email" value="{{owner.email}}"/>
+            <input class="button" type="submit" value="Update"/>
+        </form>
+
+{% endblock content %}

@@ -1,15 +1,16 @@
 {% extends 'base.jinja' %}
 {% block content %}
 
-<h1> {{animal.name}} </h1>
+<h1>Denied.</h1>
+
+<h2>Only one animal may be added for an unregistered owner.</h2>
+<h3>This unregistered owner already has an animal in the system:</h3>
+
+<h4> {{animal.name}} </h4>
 <ul>
 <li>Species: {{animal.species}}</li>
 <li>Date of Birth: {{animal.dob}}</li>
-{% if animal.owner_id %}
-    <li>Owner: <a href="/owners/{{owner.id}}">{{owner.name}}</a></li>
-{% else %}
-    <li>Owner phone no.: {{animal.phone}}</li>
-{% endif %}
+<li>Owner phone no.: {{animal.phone}}</li>
 <li>Vet: <a href="/vets/{{vet.id}}">{{vet.name}}</a></li>
 <li>Notes: {{animal.notes}}</li>
 </ul>
@@ -20,5 +21,4 @@
     <label for="delete"></label>
     <input class="button" type="submit" id="delete" value="Delete"/>
 </form>
-
 {% endblock content %}

@@ -11,12 +11,16 @@ migrate = Migrate(app, db)
 
 from models.vet import Vet
 from models.animal import Animal
+from models.owner import Owner
 
 from controllers.vets_controller import vets_blueprint
 app.register_blueprint(vets_blueprint)
 
 from controllers.animals_controller import animals_blueprint
 app.register_blueprint(animals_blueprint)
+
+from controllers.owners_controller import owners_blueprint
+app.register_blueprint(owners_blueprint)
 
 from controllers.home_controller import home_blueprint
 app.register_blueprint(home_blueprint)

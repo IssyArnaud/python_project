@@ -1,0 +1,15 @@
+{% extends 'base.jinja' %}
+{% block content %}
+
+<h1>Owners</h1>
+<ul>
+    {% for owner in owners %}
+    <li><a href="/owners/{{owner.id}}">{{owner.name}}</a></li>
+    {% endfor %}
+</ul>
+
+<button>
+    <a class="button" href="/owners/new">Register new owner</a>
+</button>
+
+{% endblock content %}

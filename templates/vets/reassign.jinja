@@ -9,23 +9,28 @@
     {% for animal in cases  %}
         <li>
             <h3> {{animal.name}} </h3>
-                <ul>
-                    <li>Species: {{animal.species}}</li>
-                    <li>Date of Birth: {{animal.dob}}</li>
-                    <li>Owner phone no.: {{animal.phone}}</li>
-                    <li>
+                <section id="reassign"
+                    <div id="left">Species:</div>
+                    <div id= "right">{{animal.species}}</div>
+                    <div id="left">Date of Birth:</div> 
+                    <div id="right">{{animal.dob}}</div>
+                    <div id="left">Owner phone no.: </div>
+                    <div id="right">{{animal.phone}}</div>
+                    <div id="left">
                         <form action="/vets/{{vet.id}}/reassign/{{animal.id}}" method="POST">
-                            <label for="vet">Vet</label>
-                                <select name="vet.id">
-                                    {% for vet in vets %}
-                                        <option value="{{vet.id}}" selected class="text">{{vet.name}}</option>
-                                    {% endfor %}
-                                </select>
+                            <label for="vet">Vet:</label>
+                    </div>
+                    <div id="right">
+                            <select name="vet.id">
+                                {% for vet in vets %}
+                                    <option value="{{vet.id}}" selected class="text">{{vet.name}}</option>
+                                {% endfor %}
+                            </select>
                             <input class="button" type="submit" value="Update"/>
                         </form>
-                    </li>
-                    <li>Notes: {{animal.notes}}</li>
-                </ul>
+                    </div>
+                    <div id="left">Notes:</div>
+                    <div id="right">{{animal.notes}}</div>
         </li>
     {% endfor %}
 </ul>

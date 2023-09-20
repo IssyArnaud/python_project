@@ -60,4 +60,43 @@ button {
 
 section {
     margin-left: 50px;
+    margin-right: 50px
 }
+
+#grid-container {
+    display: grid;
+    grid-template-areas:
+      'label input'
+      'label input'
+      'label input'
+      'label input'
+      'label input'
+      'label input';
+    justify-content: center;
+  }
+
+#reassign {
+    display: grid;
+    grid-template-areas:
+      'left right'
+      'left right'
+      'left right'
+      'left right'
+      'left right'
+      'left right';
+    justify-content: left;
+    margin-left: 0px;
+}
+
+p {
+    font-weight: bold;
+}
+
+/* #newanimal {
+    display: flex;
+    background-color: rgb(42, 41, 44);
+}
+
+#newanimal>p {
+    background-color: rgb(42, 41, 44);
+} */
