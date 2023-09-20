@@ -4,21 +4,21 @@
 <h1>Add animal</h1>
     <form id="grid-container" action="/animals/new/unregistered" method="POST">
         <label for="name">Name:</label>
-        <input type="text" name="name" id="name"/>
+        <input type="text" name="name" id="name" required/>
         <label for="species">Species:</label>
-        <input type="text" name="species" id="species"/>
+        <input type="text" name="species" id="species" required/>
         <label for="dob">Date of Birth:</label>
-        <input type="text" name="dob" id="dob"/>
+        <input type="date" name="dob" id="dob" required/>
         <label for="phone">Owner's phone no.:</label>
-        <input type="text" name="phone" id="phone"/>
-        <label for="notes">Notes:</label>
-        <textarea name="notes" id="notes" rows="4" cols="80"></textarea>
+        <input type="text" name="phone" id="phone" required/>
         <label for="vet">Vet:</label>
         <select name="vet.id">
             {% for vet in vets %}
                 <option value="{{vet.id}}" class="text">{{vet.name}}</option>
             {% endfor %}
         </select>
+        <label for="notes">Notes:</label>
+        <textarea name="notes" id="notes" rows="4" cols="80" required ></textarea>
         <input class="button" type="submit" value="Add"/>
     </form>
 

@@ -1,0 +1,15 @@
+{% extends 'base.jinja' %}
+{% block content %}
+
+<h1>Appointments</h1>
+<ul class="spacedlist">
+    {% for appointment in appointments %}
+    <li> {{appointment.animal.name}}: {{appointment.treatment.title}} - <a href="/appointments/{{appointment.id}}">Details</a></li>
+    {% endfor %}
+</ul>
+
+<button>
+    <a class="button" href="/appointments/new">Add new appointment</a>
+</button>
+
+{% endblock content %}

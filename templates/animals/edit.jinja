@@ -9,7 +9,7 @@
             <label for="species">Species:</label>
             <input type="text" name="species" id="species" value="{{animal.species}}"/>
             <label for="dob">Date of Birth:</label>
-            <input type="text" name="dob" id="dob" value="{{animal.dob}}"/>
+            <input type="date" name="dob" id="dob" value="{{animal.dob}}"/>
             <label for="owner">Owner:</label>
             <select name="owner.id">
                 {% for person in owners %}

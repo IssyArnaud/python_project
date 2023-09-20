@@ -1,0 +1,16 @@
+{% extends 'base.jinja' %}
+{% block content %}
+
+<h1>Update details</h1>
+<h2>{{treatment.title}}</h2>
+    <form action="/treatments/{{treatment.id}}/edit" method="POST">
+            <label for="title">Title:</label>
+            <input type="text" name="title" id="title" value="{{treatment.title}}"/>
+            <label for="price">Price</label>
+            <input type="number" name="price" id="price" value="{{treatment.price}}"/>
+            <label for="in_patient">In-patient: </label>
+            <input type="checkbox" name="in_patient" id="in_patient" value="in_patient"/>
+            <input class="button" type="submit" value="Update"/>
+    </form>
+
+{% endblock content %}

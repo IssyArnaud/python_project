@@ -1,5 +1,6 @@
 from flask import Flask, render_template, request, redirect
 from flask import Blueprint
+from datetime import datetime
 
 from models.animal import Animal
 from models.vet import Vet
@@ -41,7 +42,8 @@ def update(id):
     animal = Animal.query.get(id)
     name = request.form["name"]
     species = request.form["species"]
-    dob = request.form["dob"]
+    string_dob = request.form["dob"]
+    dob = datetime.strptime(string_dob, '%Y-%m-%d').date()
     notes = request.form["notes"]
     vet_id = request.form["vet.id"]
     animal.name = name
@@ -69,7 +71,8 @@ def new():
 def add_new():
     name = request.form["name"]
     species = request.form["species"]
-    dob = request.form["dob"]
+    string_dob = request.form["dob"]
+    dob = datetime.strptime(string_dob, '%Y-%m-%d').date()
     owner_id = request.form["owner.id"]
     notes = request.form["notes"]
     vet_id = request.form["vet.id"]
@@ -93,7 +96,8 @@ def denied(id):
 def add_unregistered():
     name = request.form["name"]
     species = request.form["species"]
-    dob = request.form["dob"]
+    string_dob = request.form["dob"]
+    dob = datetime.strptime(string_dob, '%Y-%m-%d').date()
     phone = request.form["phone"]
     notes = request.form["notes"]
     vet_id = request.form["vet.id"]

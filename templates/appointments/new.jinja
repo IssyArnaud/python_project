@@ -1,0 +1,23 @@
+{% extends 'base.jinja' %}
+{% block content %}
+
+<h1>Add appointment</h1>
+    <form id="grid-container" action="/appointments/new" method="POST">
+    <label for="animal_id">Animal:</label>
+    <select name="animal_id">
+        {% for animal in animals %}
+            <option value="{{animal.id}}" class="text">{{animal.name}}</option>
+        {% endfor %}
+    </select>
+    <label for="treatment_id">Treatment</label>
+    <select name="treatment_id">
+        {% for treatment in treatments %}
+            <option value="{{treatment.id}}" class="text">{{treatment.title}}</option>
+        {% endfor %}
+    </select>
+    <label for="notes">Notes:</label>
+    <textarea name="notes" id="notes" rows="4" cols="80" required ></textarea>
+    <input class="button" type="submit" value="Add"/>
+    </form>
+
+{% endblock content %}

@@ -1,0 +1,41 @@
+{% extends 'base.jinja' %}
+{% block content %}
+
+<h1> {{appointment.animal.name}}: {{appointment.treatment.title}} </h1>
+
+<section id="appointment">
+<ul>
+    <h2>Animal</h2>
+        <li>Name: <a href="/animals/{{animal.id}}">{{appointment.animal.name}}</a></li>
+        <li>Species: {{appointment.animal.species}}</li>
+        <li>Date of birth: {{appointment.animal.dob}}</li>
+        <li>Notes: {{appointment.animal.notes}}</li>
+</ul>
+<ul>
+    <h2>Owner</h2>
+        <li>Name: <a href="/owners/{{owner.id}}">{{owner.name}}</a></li>
+        <li>Phone no.: {{owner.phone}}</li>
+</ul>
+<ul>
+    <h2><a href="/treatments/{{treatment.id}}">{{appointment.treatment.title}}</a></h2>
+        <li>Price: {{appointment.treatment.price}}</li>
+        <li>Vet: <a href="/vets/{{vet.id}}">{{vet.name}}</a></li>
+        <li> {% if treatment.in_patient == True %}
+            In-patient treatment
+        {% else %}
+            Out-patient treatment
+        {% endif %}</li>
+        <li>Notes: {{appointment.notes}}</li>
+</ul>
+</section>
+
+<button class="button">
+    <a class="button" href="/appointments/{{appointment.id}}/edit">Update</a>
+</button>
+
+<form action="/appointments/{{appointment.id}}" method="POST">
+    <label for="delete"></label>
+    <input class="button" type="submit" id="delete" value=" Delete"/>
+</form>
+
+{% endblock content %}

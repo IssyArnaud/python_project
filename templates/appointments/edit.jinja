@@ -1,0 +1,29 @@
+{% extends 'base.jinja' %}
+{% block content %}
+
+<h1>Update details</h1>
+    <form id="grid-container" action="/appointments/{{appointment.id}}/edit" method="POST">
+    <label for="animal_id">Animal:</label>
+    <select name="animal_id">
+        {% for pet in animals  %}
+            <option value="{{pet.id}}" class="text"
+                {% if  pet.id == appointment.animal_id %} selected {% endif %}>
+                    {{pet.name}}
+            </option>
+        {% endfor %}
+    </select>
+    <label for="treatment_id">Treatment</label>
+    <select name="treatment_id">
+        {% for service in treatments %}
+            <option value="{{service.id}}" class="text"
+                {% if service.id == appointment.treatment_id %} selected {% endif %}>
+                    {{service.title}}
+            </option>
+        {% endfor %}
+    </select>
+    <label for="notes">Notes:</label>
+        <textarea name="notes" id="notes">{{appointment.notes}}</textarea>
+        <input class="button" type="submit" value="Update"/>
+    </form>
+
+{% endblock content %}

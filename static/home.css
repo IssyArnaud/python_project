@@ -17,9 +17,9 @@ h1 {
     font-size: xxx-large;
 }
 
-header>section {
+section {
         display: flex;
-        justify-content: space-evenly;
+        justify-content: center;
 }
 
 button {

@@ -21,7 +21,7 @@
 
 <ul>
     {% for animal in pets  %}
-        <li><a href="/animals/{{animal.id}}">{{animal.name}}, {{animal.species}}</li>
+        <li><a href="/animals/{{animal.id}}">{{animal.name}}</a>, {{animal.species}}</li>
     {% endfor %}
 </ul>
 

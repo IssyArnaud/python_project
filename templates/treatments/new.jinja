@@ -1,0 +1,15 @@
+{% extends 'base.jinja' %}
+{% block content %}
+
+<h1>Add treatment</h1>
+    <form action="/treatments/new" method="POST">
+        <label for="title">Title:</label>
+        <input type="text" name="title" id="title" required/>
+        <label for="price">Price</label>
+        <input type="number" name="price" id="price" required/>
+        <label for="in_patient">In-patient: </label>
+        <input type="checkbox" name="in_patient" id="in_patient"/>
+        <input class="button" type="submit" value="Add"/>
+    </form>
+
+{% endblock content %}

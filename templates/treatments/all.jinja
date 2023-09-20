@@ -1,0 +1,15 @@
+{% extends 'base.jinja' %}
+{% block content %}
+
+<h1>Treatments</h1>
+<ul>
+    {% for treatment in treatments %}
+    <li><a href="/treatments/{{treatment.id}}">{{treatment.title}}</a></li>
+    {% endfor %}
+</ul>
+
+<button>
+    <a class="button" href="/treatments/new">Add new treatment</a>
+</button>
+
+{% endblock content %}

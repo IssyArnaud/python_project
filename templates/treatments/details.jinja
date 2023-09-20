@@ -1,0 +1,24 @@
+{% extends 'base.jinja' %}
+{% block content %}
+
+<h1> {{treatment.title}} </h1>
+
+<ul>
+    <li>Price: £{{treatment.price}}</li>
+    <li> {% if treatment.in_patient == True %}
+            In-patient treatment
+        {% else %}
+            Out-patient treatment
+        {% endif %}</li>
+</ul>
+
+<button class="button">
+    <a class="button" href="/treatments/{{treatment.id}}/edit">Update</a>
+</button>
+
+<form action="/treatments/{{treatment.id}}" method="POST">
+    <label for="delete"></label>
+    <input class="button" type="submit" id="delete" value=" Delete"/>
+</form>
+
+{% endblock content %}
