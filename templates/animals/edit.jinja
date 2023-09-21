@@ -13,7 +13,7 @@
             <label for="owner">Owner:</label>
             <select name="owner.id">
                 {% for person in owners %}
-                    <option value="{{owner.id}}" class="text"
+                    <option value="{{person.id}}" class="text"
                         {% if person.id == animal.owner_id %}selected{% endif %}>
                             {{person.name}} 
                     </option>
