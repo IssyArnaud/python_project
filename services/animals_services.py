@@ -1,6 +1,11 @@
 from models.animal import Animal
 from datetime import datetime
 
+##########################
+# example of extracting logic/verbosity
+##########################
+
+
 def handle_create_animal(form_dict):
     name = form_dict["name"]
     species = form_dict["species"]
