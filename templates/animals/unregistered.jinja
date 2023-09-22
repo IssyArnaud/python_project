@@ -1,6 +1,8 @@
 {% extends 'base.jinja' %}
 {% block content %}
+{# this form is probbaly redundent, I think it would be better to refactor our other jinja template that's for adding a new animal and allowing there to be some sort of check that will that makes the user add a new owner first along with us to add a owner that's 'unregistered' with the changes I suggested to our tables
 
+Unless there was a spesfic reason why we need to be able to add animals without associating them with contact details of a owner.#}
 <h1>Add animal</h1>
     <form id="grid-container" action="/animals/new/unregistered" method="POST">
         <label for="name">Name:</label>

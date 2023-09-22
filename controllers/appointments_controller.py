@@ -58,7 +58,8 @@ def new():
     treatments = Treatment.query.all()
     return render_template('appointments/new.jinja', animals=animals, treatments=treatments)
 
-@appointments_blueprint.route('/appointments/new', methods=["POST"])
+@appointments_blueprint.route('/appointments/new', methods=["POST"]) #It would follow the restful routing convention better to have this route named '/appointments' 
+#we don't need to have '/new' as the fact it's a post request implies we are creating a new appointment.  
 def add():
     animal_id = request.form["animal_id"]
     treatment_id = request.form["treatment_id"]
